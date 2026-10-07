@@ -131,7 +131,7 @@ async function loadProducts(){
   const grid = $("grid");
   grid.innerHTML = `<div class="empty"><div style="font-size:38px">⏳</div><h3>Loading products...</h3><p>Connecting to your live product database.</p></div>`;
 
-  if(!API_URL || API_URL.includes("https://script.google.com/macros/s/AKfycby8I7NsRC0Z8mqk9ahCQE6eq4DH6aTvPJAhb0rLyCnPfd1HDnkicTV5Y6SG2LAjV0i1Iw/exec")){
+  if(!API_URL || API_URL.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT")){
     grid.innerHTML = `<div class="empty"><div style="font-size:38px">⚙️</div><h3>Database not connected yet</h3><p>Open index.html and paste your Google Apps Script Web App URL into <b>API_URL</b>.</p></div>`;
     return;
   }
