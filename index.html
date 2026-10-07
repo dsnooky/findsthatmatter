@@ -1,38 +1,299 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Finds That Matter</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061B5B">
+<meta name="description" content="AS Prints Affiliate Store — discover useful products and shop through trusted marketplace links.">
+<title>Your Affiliate Store</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f6f7fb;color:#172033}header{background:#111827;color:white;position:sticky;top:0;padding:14px;z-index:5}
-.nav,.wrap{max-width:1150px;margin:auto}.nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.logo{font-size:22px;font-weight:bold}.logo b{color:#fbbf24}
-input,select{padding:12px;border-radius:9px;border:1px solid #d7dce5}input{flex:1;min-width:220px}
-.hero{background:linear-gradient(135deg,#111827,#475569);color:white;padding:55px 18px}.hero h1{font-size:clamp(32px,6vw,58px);margin:0 0 10px}.hero p{font-size:18px}.hero button{padding:12px 18px;border:0;border-radius:9px;font-weight:bold;background:#fbbf24}
-.wrap{padding:25px 18px}.cats{display:flex;gap:8px;overflow:auto;padding:8px 0 18px}.cat{white-space:nowrap;padding:9px 14px;border-radius:999px;border:1px solid #ddd;background:white}.cat.on{background:#111827;color:white}
-.tools{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:17px}
-.card{background:white;border-radius:14px;overflow:hidden;border:1px solid #e9edf3;box-shadow:0 3px 14px #0001}.pic{height:205px;background:#edf1f6;display:flex;align-items:center;justify-content:center}.pic img{width:100%;height:100%;object-fit:cover}.ph{font-size:50px}
-.body{padding:13px}.small{font-size:12px;color:#64748b}.name{font-weight:bold;margin:6px 0}.price{font-size:21px;font-weight:bold;margin:8px 0}.old{font-size:12px;color:#94a3b8;text-decoration:line-through;font-weight:normal}
-.btn{display:block;text-align:center;text-decoration:none;background:#111827;color:white;padding:10px;border-radius:8px;margin-top:7px;font-weight:bold}.btn.off{background:#e5e7eb;color:#94a3b8}
-footer{background:#111827;color:#cbd5e1;margin-top:40px;padding:35px 18px}@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:9px}.pic{height:150px}.body{padding:9px}.name{font-size:14px}.price{font-size:17px}.btn{font-size:11px;padding:9px 4px}}
-</style></head><body>
-<header><div class="nav"><div class="logo">Finds That <b>Matter</b></div><input id="search" placeholder="Search products..."></div></header>
-<section class="hero"><div class="wrap"><h1>Discover. Compare. Shop Smart.</h1><p>Shop useful finds from Shopee, TikTok Shop and Lazada in one place.</p><button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Browse Products →</button></div></section>
-<main class="wrap" id="shop"><h2>Shop by Category</h2><div id="cats" class="cats"></div>
-<div class="tools"><b id="count"></b><select id="sort"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="rating">Top Rated</option></select></div>
-<div id="grid" class="grid"></div></main>
-<footer><div class="wrap"><b style="color:white">Finds That Matter</b><p>We may earn a commission when you shop through our affiliate links. Prices and availability may change on the marketplace.</p>© 2026 Finds That Matter</div></footer>
+:root{--navy:#061B5B;--navy2:#123A9A;--pink:#EB5485;--pink2:#ff739c;--soft:#F9DCE4;--bg:#f6f8fc;--white:#fff;--dark:#182033;--muted:#697386;--border:#e7eaf0;--shadow:0 12px 35px rgba(6,27,91,.09);--shadow2:0 20px 55px rgba(6,27,91,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}button,input,select{font:inherit}button{cursor:pointer}
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(231,234,240,.9)}
+.nav{max-width:1240px;margin:auto;min-height:76px;padding:12px 20px;display:grid;grid-template-columns:auto minmax(280px,1fr) auto;align-items:center;gap:22px}.logo{font-weight:950;font-size:21px;letter-spacing:-.7px;color:var(--navy);white-space:nowrap}.logo span{color:var(--pink)}
+.search{position:relative;width:100%}.search input{width:100%;height:46px;padding:0 18px 0 46px;border:1px solid var(--border);border-radius:15px;background:#f8f9fc;color:var(--dark);outline:0;transition:.2s}.search input:focus{background:#fff;border-color:rgba(235,84,133,.55);box-shadow:0 0 0 4px rgba(235,84,133,.10)}.search-icon{position:absolute;left:17px;top:11px;font-size:20px;color:var(--muted);pointer-events:none}
+.nav-pill{padding:10px 14px;border-radius:12px;background:var(--soft);color:var(--navy);font-size:12px;font-weight:850;white-space:nowrap}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 85% 20%,rgba(235,84,133,.25),transparent 27%),linear-gradient(135deg,#061B5B 0%,#0c2b7d 58%,#123a9a 100%);color:#fff}.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-150px;bottom:-210px}.hero-inner{max-width:1240px;margin:auto;padding:74px 20px 78px;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:18px}.hero h1{margin:0 0 16px;max-width:760px;font-size:clamp(40px,6.4vw,72px);line-height:.98;letter-spacing:-3px}.hero h1 span{color:#ff9fbb}.hero p{margin:0 0 28px;max-width:650px;font-size:17px;line-height:1.7;color:#e8edff}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.hero-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 19px;border-radius:13px;background:var(--pink);color:#fff;font-weight:850;box-shadow:0 10px 24px rgba(0,0,0,.18);transition:.2s}.hero-btn:hover{transform:translateY(-2px);background:var(--pink2)}.hero-btn.secondary{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);box-shadow:none}
+.wrap{max-width:1240px;margin:auto;padding:38px 20px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.section-title{margin:0;color:var(--navy);font-size:25px;letter-spacing:-.7px}.section-sub{margin:4px 0 0;color:var(--muted);font-size:13px}.categories{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 18px;scrollbar-width:none}.categories::-webkit-scrollbar{display:none}.cat{white-space:nowrap;border:1px solid var(--border);background:#fff;color:var(--dark);padding:10px 15px;border-radius:999px;cursor:pointer;transition:.18s;font-size:13px;font-weight:750}.cat:hover{border-color:#cfd5df;transform:translateY(-1px)}.cat.active{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 6px 16px rgba(6,27,91,.16)}
+.tools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 18px;flex-wrap:wrap}.count{color:var(--muted);font-size:13px;font-weight:650}.sort{height:42px;border:1px solid var(--border);background:#fff;border-radius:11px;padding:0 12px;color:var(--dark);outline:0}.sort:focus{border-color:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0;transition:transform .2s,box-shadow .2s,border-color .2s}.card:hover{transform:translateY(-5px);box-shadow:var(--shadow2);border-color:#dfe3ea}.pic{height:245px;background:linear-gradient(145deg,#f1f4f9,#fff);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.pic:after{content:"";position:absolute;inset:auto -20% -65%;height:130px;background:rgba(6,27,91,.025);border-radius:50%}.pic img{width:100%;height:100%;object-fit:contain;padding:14px;display:block;position:relative;z-index:1}.pic .placeholder{font-size:52px;color:#c8cfdb}.badge{position:absolute;left:11px;top:11px;z-index:3;background:var(--pink);color:#fff;padding:6px 9px;border-radius:8px;font-size:10px;font-weight:900;letter-spacing:.4px}.body{padding:15px;display:flex;flex-direction:column;flex:1}.small{font-size:11px;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.35px}.name{font-weight:850;color:var(--navy);margin:6px 0 5px;line-height:1.3;font-size:15px}.desc{font-size:12.5px;color:var(--muted);line-height:1.5;min-height:38px}.price{font-size:22px;font-weight:950;color:var(--pink);margin:11px 0 3px;letter-spacing:-.5px}.old{font-size:12px;color:#9aa3b2;text-decoration:line-through;font-weight:550;margin-left:5px}.meta{font-size:11.5px;color:var(--muted);margin-bottom:11px}.links{margin-top:auto;display:grid;gap:7px}.btn{display:flex;align-items:center;justify-content:center;min-height:38px;text-align:center;padding:8px 10px;border-radius:10px;background:var(--navy);color:white;font-size:11.5px;font-weight:850;transition:.18s}.btn:hover{background:var(--navy2);transform:translateY(-1px)}.btn.off{background:#eef0f4;color:#9aa3b2;pointer-events:none}
+.empty{grid-column:1/-1;background:#fff;border:1px dashed #d9dee7;border-radius:16px;padding:52px 25px;text-align:center;color:var(--muted)}.empty h3{margin:8px 0 4px;color:var(--navy)}.footer{margin-top:35px;background:#061B5B;color:#dce3f8}.footer-inner{max-width:1240px;margin:auto;padding:38px 20px}.footer strong{color:#fff;font-size:17px}.footer p{font-size:12.5px;line-height:1.7;max-width:760px;margin:9px 0 16px}
+@media(max-width:1050px){.nav{grid-template-columns:auto 1fr}.nav-pill{display:none}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pic{height:230px}}
+@media(max-width:760px){.nav{min-height:68px;padding:10px 14px;grid-template-columns:1fr;gap:9px}.logo{font-size:19px}.search input{height:43px;border-radius:12px}.hero-inner{padding:52px 18px 58px}.hero h1{font-size:clamp(40px,12vw,57px);letter-spacing:-2px}.hero p{font-size:15px}.wrap{padding:30px 14px}.section-head{align-items:flex-start}.section-title{font-size:22px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.pic{height:190px}.pic img{padding:10px}.body{padding:11px}.name{font-size:13.5px}.desc{font-size:11.5px}.price{font-size:19px}.btn{font-size:11px;min-height:36px}}
+@media(max-width:480px){.hero-actions{display:grid;grid-template-columns:1fr}.hero-btn{width:100%}.categories{margin-right:-14px;padding-right:14px}.tools{align-items:stretch}.sort{width:100%}.grid{grid-template-columns:1fr 1fr;gap:9px}.pic{height:155px}.badge{font-size:9px;padding:5px 7px}.body{padding:10px}.small{font-size:9px}.name{font-size:12.5px}.desc{font-size:10.5px;min-height:31px}.price{font-size:18px}.old{font-size:10px}.meta{font-size:10px}.links{gap:5px}.btn{min-height:34px;padding:6px 5px;font-size:10px;border-radius:8px}}
+@media(max-width:340px){.grid{grid-template-columns:1fr}.pic{height:220px}.hero h1{font-size:39px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* ===== MODERN SHOP FEATURES ===== */
+.featured-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 34px}
+.featured-card{position:relative;overflow:hidden;min-height:160px;padding:20px;border-radius:18px;background:linear-gradient(135deg,#fff,#fff6f8);border:1px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.featured-card:nth-child(2){background:linear-gradient(135deg,#fff,#f1f5ff)}
+.featured-card:nth-child(3){background:linear-gradient(135deg,#fff,#f8f4ff)}
+.featured-copy{min-width:0}.featured-copy small{font-weight:850;color:var(--pink);text-transform:uppercase;font-size:10px;letter-spacing:.5px}.featured-copy h3{margin:6px 0 5px;color:var(--navy);font-size:17px;line-height:1.2}.featured-copy p{margin:0;color:var(--muted);font-size:11px;line-height:1.45}.featured-art{width:90px;height:90px;flex:0 0 90px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border)}.featured-art img{width:100%;height:100%;object-fit:contain;padding:6px}.deal-badge{display:inline-flex;margin-top:9px;background:var(--soft);color:var(--navy);padding:5px 8px;border-radius:7px;font-size:10px;font-weight:900}
+.card-top{position:absolute;right:10px;top:10px;z-index:3;display:flex;gap:5px}.discount-badge{background:#ffeff3;color:#d72e62;border:1px solid #ffd1dd;padding:5px 7px;border-radius:7px;font-size:10px;font-weight:950}.market-badge{background:rgba(255,255,255,.92);color:var(--navy);border:1px solid var(--border);padding:5px 7px;border-radius:7px;font-size:9px;font-weight:900}
+.quick-btn{border:1px solid var(--border);background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;min-height:36px;border-radius:10px;font-size:11px;font-weight:850;cursor:pointer}.quick-btn:hover{background:#f7f8fc;border-color:#cfd5df}.links .btn{width:100%}
+.modal-backdrop{position:fixed;inset:0;background:rgba(4,12,35,.58);backdrop-filter:blur(6px);z-index:300;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.show{display:flex}.modal{width:min(720px,100%);max-height:min(720px,92vh);overflow:auto;background:#fff;border-radius:22px;box-shadow:0 30px 90px rgba(0,0,0,.3);position:relative}.modal-close{position:absolute;right:12px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.94);font-size:22px;color:var(--navy);z-index:4;cursor:pointer}.modal-grid{display:grid;grid-template-columns:45% 55%}.modal-image{min-height:390px;background:linear-gradient(145deg,#f2f4f9,#fff);display:flex;align-items:center;justify-content:center;padding:25px}.modal-image img{width:100%;height:100%;max-height:390px;object-fit:contain}.modal-body{padding:30px}.modal-body .small{margin-bottom:6px}.modal-title{margin:0;color:var(--navy);font-size:27px;line-height:1.12}.modal-desc{color:var(--muted);line-height:1.7;font-size:13px;margin:12px 0}.modal-price{font-size:30px;font-weight:950;color:var(--pink);margin:15px 0}.modal-actions{display:grid;gap:8px}.modal-note{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:12px}
+.mobile-nav{display:none}.mobile-nav a,.mobile-nav button{border:0;background:transparent;color:#697386;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;font-weight:800;min-width:55px}.mobile-nav .icon{font-size:18px;line-height:1}.mobile-nav .active{color:var(--pink)}
+@media(max-width:760px){.featured-strip{grid-template-columns:1fr;gap:10px;margin-bottom:25px}.featured-card{min-height:125px;padding:15px}.featured-art{width:72px;height:72px;flex-basis:72px}.featured-copy h3{font-size:15px}.modal-grid{grid-template-columns:1fr}.modal-image{min-height:250px;height:250px}.modal-body{padding:22px}.modal-title{font-size:23px}.mobile-nav{position:fixed;left:0;right:0;bottom:0;z-index:200;height:62px;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -8px 25px rgba(6,27,91,.08)}body{padding-bottom:66px}.footer{margin-bottom:0}}
+@media(max-width:480px){.featured-card{border-radius:15px}.featured-art{width:65px;height:65px;flex-basis:65px}.modal-backdrop{padding:8px}.modal{border-radius:18px}.modal-image{height:220px;min-height:220px}.modal-body{padding:18px}.modal-price{font-size:26px}}
+
+</style>
+</head>
+<body>
+<header class="header" id="top">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="logo">AS Prints <span>SHOP</span></div>
+    <div class="nav-pill">🛍️ Curated Deals</div>
+    <div class="search">
+      <span class="search-icon">⌕</span>
+      <input id="search" type="search" placeholder="Search products..." aria-label="Search products">
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">✨ CURATED FINDS • SMART SHOPPING</div>
+    <h1>Discover. Compare.<br><span>Shop Smart.</span></h1>
+    <p>Find useful products from Shopee, TikTok Shop and Lazada in one clean, convenient storefront.</p>
+    <div class="hero-actions"><a class="hero-btn" href="#shop">Browse Products <span>→</span></a><a class="hero-btn secondary" href="#categories">Explore Categories</a></div>
+  </div>
+</section>
+
+<main class="wrap" id="shop">
+  <div class="section-head"><div><h2 class="section-title">Featured Finds</h2><p class="section-sub">Popular picks worth checking out today.</p></div></div>
+  <section id="featured" class="featured-strip" aria-label="Featured products"></section>
+
+  <div class="section-head"><div><h2 class="section-title">Shop by Category</h2><p class="section-sub">Browse our latest curated finds.</p></div></div>
+  <div id="categories" class="categories" aria-label="Product categories"></div>
+  <div class="tools">
+    <strong id="count" class="count"></strong>
+    <select id="sort" class="sort" aria-label="Sort products">
+      <option value="featured">Featured</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="rating">Top Rated</option>
+      <option value="sales">Best Selling</option>
+    </select>
+  </div>
+  <section id="grid" class="grid" aria-live="polite"></section>
+</main>
+
+<div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-grid">
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-body">
+        <div class="small" id="modalCategory"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDescription"></p>
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="meta" id="modalMeta"></div>
+        <div class="modal-actions" id="modalActions"></div>
+        <div class="modal-note">You will be redirected to the selected marketplace. Prices, promotions and availability may change on the marketplace.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="#top" class="active"><span class="icon">⌂</span>Home</a>
+  <a href="#featured"><span class="icon">★</span>Featured</a>
+  <a href="#shop"><span class="icon">▦</span>Shop</a>
+  <button type="button" id="mobileSearchBtn"><span class="icon">⌕</span>Search</button>
+</nav>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <strong>Your Affiliate Store</strong>
+    <p>We may earn a commission when you shop through our affiliate links. Prices, promotions and availability are controlled by the marketplace and may change.</p>
+    <small>© 2026 Your Affiliate Store. All rights reserved.</small>
+  </div>
+</footer>
+
 <script>
-const products=[{"id": "P001", "name": "Portable Mini Fan", "category": "Gadgets", "description": "Rechargeable portable fan", "image": "https://example.com/fan.jpg", "price": 299, "old": 499, "shopee": "PASTE_AFFILIATE_LINK", "tiktok": "", "lazada": "", "featured": true, "status": true, "rating": 4.8, "sales": 1250, "tags": "cooling,summer"}, {"id": "P002", "name": "Baby Bottle Set", "category": "Baby Needs", "description": "Complete baby feeding set", "image": "https://example.com/bottle.jpg", "price": 399, "old": 599, "shopee": "", "tiktok": "PASTE_AFFILIATE_LINK", "lazada": "", "featured": true, "status": true, "rating": 4.9, "sales": 830, "tags": "baby,feeding"}, {"id": "P003", "name": "Wireless Earbuds", "category": "Electronics", "description": "Bluetooth wireless earbuds", "image": "https://example.com/earbuds.jpg", "price": 499, "old": 899, "shopee": "", "tiktok": "", "lazada": "PASTE_AFFILIATE_LINK", "featured": false, "status": true, "rating": 4.7, "sales": 2100, "tags": "audio,gadget"}];
-let cat="All",q="",sort="featured";
-const safe=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
-const peso=n=>"₱"+Number(n||0).toLocaleString("en-PH");
-function render(){
-let cs=["All",...new Set(products.filter(p=>p.status).map(p=>p.category))];
-document.getElementById("cats").innerHTML=cs.map(c=>`<button class="cat ${c==cat?"on":""}" onclick="cat=this.textContent;render()">${safe(c)}</button>`).join("");
-let a=products.filter(p=>p.status&&(cat=="All"||p.category==cat)&&(p.name+" "+p.description+" "+p.tags+" "+p.category).toLowerCase().includes(q.toLowerCase()));
-if(sort=="low")a.sort((x,y)=>x.price-y.price);if(sort=="high")a.sort((x,y)=>y.price-x.price);if(sort=="rating")a.sort((x,y)=>y.rating-x.rating);if(sort=="featured")a.sort((x,y)=>Number(y.featured)-Number(x.featured));
-document.getElementById("count").textContent=a.length+" product"+(a.length==1?"":"s");
-document.getElementById("grid").innerHTML=a.length?a.map(card).join(""):"<p>No products found.</p>";
+/*
+  GITHUB PAGES VERSION
+  --------------------
+  This file is intentionally self-contained. GitHub Pages can serve it directly
+  as the site's index.html.
+
+  PRODUCT DATA:
+  The products below are generated from the Products sheet in the supplied
+  Excel workbook. To update the website, edit the Products sheet and regenerate
+  this index.html, or later connect this page to a published Google Sheet/CSV.
+*/
+const products = [{"id":"P001","name":"Portable Mini Fan","category":"Gadgets","description":"Rechargeable portable fan","image":"https://example.com/fan.jpg","price":299,"old":499,"shopee":"PASTE_AFFILIATE_LINK","tiktok":"","lazada":"","primary":"Shopee","featured":true,"status":true,"stock":"In Stock","rating":4.8,"sales":1250,"tags":"cooling,summer"},{"id":"P002","name":"Baby Bottle Set","category":"Baby Needs","description":"Complete baby feeding set","image":"https://example.com/bottle.jpg","price":399,"old":599,"shopee":"","tiktok":"PASTE_AFFILIATE_LINK","lazada":"","primary":"TikTok Shop","featured":true,"status":true,"stock":"In Stock","rating":4.9,"sales":830,"tags":"baby,feeding"},{"id":"P003","name":"Wireless Earbuds","category":"Electronics","description":"Bluetooth wireless earbuds","image":"https://example.com/earbuds.jpg","price":499,"old":899,"shopee":"","tiktok":"","lazada":"PASTE_AFFILIATE_LINK","primary":"Lazada","featured":false,"status":true,"stock":"In Stock","rating":4.7,"sales":2100,"tags":"audio,gadget"}];
+
+let selectedCategory = "All";
+let searchText = "";
+let sortMode = "featured";
+
+const $ = id => document.getElementById(id);
+
+function safe(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 }
-function link(u,n){return u?`<a class="btn" href="${safe(u)}" target="_blank" rel="noopener">Shop on ${n} →</a>`:`<span class="btn off">${n} unavailable</span>`}
-function card(p){let pic=p.image?`<img src="${safe(p.image)}" alt="${safe(p.name)}">`:"<div class='ph'>🛍️</div>";let d=p.old&&p.old>p.price?Math.round((1-p.price/p.old)*100):0;
-return `<article class="card"><div class="pic">${pic}</div><div class="body"><div class="small">${safe(p.category)}</div><div class="name">${safe(p.name)}</div><div class="small">${safe(p.description)}</div><div class="price">${peso(p.price)} <span class="old">${p.old?peso(p.old):""}</span> <span class="small">${d?"-"+d+"%":""}</span></div><div class="small">⭐ ${p.rating} · ${Number(p.sales).toLocaleString()} sold</div>${link(p.shopee,"Shopee")}${link(p.tiktok,"TikTok Shop")}${link(p.lazada,"Lazada")}</div></article>`}
-document.getElementById("search").oninput=e=>{q=e.target.value;render()};document.getElementById("sort").onchange=e=>{sort=e.target.value;render()};render();
-</script></body></html>
+
+function peso(value){
+  const n = Number(value);
+  return Number.isFinite(n) ? "₱" + n.toLocaleString("en-PH",{maximumFractionDigits:2}) : "";
+}
+
+function activeProducts(){
+  return products.filter(p => p.status === true);
+}
+
+function imageHtml(p){
+  if(!p.image) return '<div class="placeholder" aria-hidden="true">🛍️</div>';
+  return `<img src="${safe(p.image)}" alt="${safe(p.name)}" loading="lazy"
+    onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <div class="placeholder" style="display:none" aria-hidden="true">🛍️</div>`;
+}
+
+function marketplaceLink(url, label){
+  if(!url || /^PASTE_|example\.com/i.test(String(url))) {
+    return `<span class="btn off">${label} link unavailable</span>`;
+  }
+  return `<a class="btn" href="${safe(url)}" target="_blank" rel="noopener noreferrer nofollow sponsored">${label} →</a>`;
+}
+
+function productCard(p){
+  const discount = Number(p.old) > Number(p.price)
+    ? Math.round((1 - Number(p.price)/Number(p.old))*100) : 0;
+  const rating = p.rating !== "" ? `⭐ ${safe(p.rating)}` : "";
+  const sales = p.sales !== "" ? ` · ${Number(p.sales).toLocaleString()} sold` : "";
+  const primary = p.primary || "Shop";
+
+  return `
+  <article class="card">
+    <div class="pic">
+      ${imageHtml(p)}
+      <div class="card-top">
+        ${discount ? `<span class="discount-badge">-${discount}%</span>` : ''}
+        ${p.featured ? '<span class="badge">FEATURED</span>' : ''}
+      </div>
+    </div>
+    <div class="body">
+      <div class="small">${safe(p.category)}</div>
+      <div class="name">${safe(p.name)}</div>
+      <div class="desc">${safe(p.description)}</div>
+      <div class="price">
+        ${peso(p.price)}
+        ${p.old ? `<span class="old">${peso(p.old)}</span>` : ""}
+      </div>
+      <div class="meta">${rating}${sales}</div>
+      <div class="links">
+        ${marketplaceLink(p[primary === 'TikTok Shop' ? 'tiktok' : primary.toLowerCase()] || p.shopee || p.tiktok || p.lazada, primary)}
+        <button class="quick-btn" type="button" onclick="openQuickView('${safe(p.id)}')">Quick View</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderFeatured(){
+  const featured = activeProducts().filter(p => p.featured).slice(0,3);
+  const list = featured.length ? featured : activeProducts().slice(0,3);
+  $("featured").innerHTML = list.map(p => {
+    const discount = Number(p.old) > Number(p.price) ? Math.round((1-Number(p.price)/Number(p.old))*100) : 0;
+    return `<article class="featured-card">
+      <div class="featured-copy">
+        <small>${discount ? 'Limited Deal' : 'Featured Pick'}</small>
+        <h3>${safe(p.name)}</h3>
+        <p>${safe(p.description)}</p>
+        <span class="deal-badge">${peso(p.price)}${discount ? ` · Save ${discount}%` : ''}</span>
+      </div>
+      <div class="featured-art">${p.image ? `<img src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.style.display='none'">` : '🛍️'}</div>
+    </article>`;
+  }).join('');
+}
+
+function openQuickView(id){
+  const p = products.find(x => String(x.id) === String(id));
+  if(!p) return;
+  const discount = Number(p.old) > Number(p.price) ? Math.round((1-Number(p.price)/Number(p.old))*100) : 0;
+  $("modalCategory").textContent = p.category || "Product";
+  $("modalTitle").textContent = p.name || "Product";
+  $("modalDescription").textContent = p.description || "";
+  $("modalPrice").innerHTML = `${peso(p.price)} ${p.old ? `<span class="old">${peso(p.old)}</span>` : ''} ${discount ? `<span class="small">Save ${discount}%</span>` : ''}`;
+  $("modalMeta").textContent = `${p.rating !== '' ? '⭐ '+p.rating : ''}${p.sales !== '' ? ' · '+Number(p.sales).toLocaleString()+' sold' : ''}`;
+  $("modalImage").innerHTML = p.image ? `<img src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.outerHTML='<div class=\"placeholder\">🛍️</div>'">` : '<div class="placeholder">🛍️</div>';
+  const links = [
+    ['Shopee',p.shopee],['TikTok Shop',p.tiktok],['Lazada',p.lazada]
+  ].filter(x => x[1] && !/^PASTE_|example\.com/i.test(String(x[1])));
+  $("modalActions").innerHTML = links.length ? links.map(([label,url]) => marketplaceLink(url, label)).join('') : '<span class="btn off">Marketplace links unavailable</span>';
+  $("modalBackdrop").classList.add('show');
+  $("modalBackdrop").setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+
+function closeQuickView(){
+  $("modalBackdrop").classList.remove('show');
+  $("modalBackdrop").setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+
+function renderCategories(){
+  const cats = ["All", ...new Set(activeProducts().map(p => p.category).filter(Boolean))];
+  $("categories").innerHTML = cats.map(c =>
+    `<button class="cat ${c === selectedCategory ? "active" : ""}" data-category="${safe(c)}">${safe(c)}</button>`
+  ).join("");
+
+  $("categories").querySelectorAll(".cat").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectedCategory = btn.dataset.category;
+      render();
+    });
+  });
+}
+
+function render(){
+  renderCategories();
+  renderFeatured();
+
+  let list = activeProducts().filter(p => {
+    const categoryMatch = selectedCategory === "All" || p.category === selectedCategory;
+    const haystack = `${p.name} ${p.description} ${p.tags} ${p.category}`.toLowerCase();
+    return categoryMatch && haystack.includes(searchText.toLowerCase());
+  });
+
+  if(sortMode === "low") list.sort((a,b) => Number(a.price)-Number(b.price));
+  if(sortMode === "high") list.sort((a,b) => Number(b.price)-Number(a.price));
+  if(sortMode === "rating") list.sort((a,b) => Number(b.rating||0)-Number(a.rating||0));
+  if(sortMode === "sales") list.sort((a,b) => Number(b.sales||0)-Number(a.sales||0));
+  if(sortMode === "featured") list.sort((a,b) => Number(b.featured)-Number(a.featured));
+
+  $("count").textContent = `${list.length} product${list.length === 1 ? "" : "s"}`;
+  $("grid").innerHTML = list.length
+    ? list.map(productCard).join("")
+    : `<div class="empty"><div style="font-size:38px">🔎</div><h3>No products found</h3><p>Try another keyword or category.</p></div>`;
+}
+
+$("search").addEventListener("input", e => {
+  searchText = e.target.value.trim();
+  render();
+});
+
+$("sort").addEventListener("change", e => {
+  sortMode = e.target.value;
+  render();
+});
+
+$("modalClose").addEventListener("click", closeQuickView);
+$("modalBackdrop").addEventListener("click", e => { if(e.target.id === "modalBackdrop") closeQuickView(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeQuickView(); });
+$("mobileSearchBtn").addEventListener("click", () => {
+  window.scrollTo({top:0,behavior:"smooth"});
+  setTimeout(() => $("search").focus(), 250);
+});
+
+render();
+</script>
+</body>
+</html>
