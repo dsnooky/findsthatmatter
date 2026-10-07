@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AS Prints Shop</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f6f7fb;color:#172033}header{background:#111827;color:white;position:sticky;top:0;padding:14px;z-index:5}
+.nav,.wrap{max-width:1150px;margin:auto}.nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.logo{font-size:22px;font-weight:bold}.logo b{color:#fbbf24}
+input,select{padding:12px;border-radius:9px;border:1px solid #d7dce5}input{flex:1;min-width:220px}
+.hero{background:linear-gradient(135deg,#111827,#475569);color:white;padding:55px 18px}.hero h1{font-size:clamp(32px,6vw,58px);margin:0 0 10px}.hero p{font-size:18px}.hero button{padding:12px 18px;border:0;border-radius:9px;font-weight:bold;background:#fbbf24}
+.wrap{padding:25px 18px}.cats{display:flex;gap:8px;overflow:auto;padding:8px 0 18px}.cat{white-space:nowrap;padding:9px 14px;border-radius:999px;border:1px solid #ddd;background:white}.cat.on{background:#111827;color:white}
+.tools{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:17px}
+.card{background:white;border-radius:14px;overflow:hidden;border:1px solid #e9edf3;box-shadow:0 3px 14px #0001}.pic{height:205px;background:#edf1f6;display:flex;align-items:center;justify-content:center}.pic img{width:100%;height:100%;object-fit:cover}.ph{font-size:50px}
+.body{padding:13px}.small{font-size:12px;color:#64748b}.name{font-weight:bold;margin:6px 0}.price{font-size:21px;font-weight:bold;margin:8px 0}.old{font-size:12px;color:#94a3b8;text-decoration:line-through;font-weight:normal}
+.btn{display:block;text-align:center;text-decoration:none;background:#111827;color:white;padding:10px;border-radius:8px;margin-top:7px;font-weight:bold}.btn.off{background:#e5e7eb;color:#94a3b8}
+footer{background:#111827;color:#cbd5e1;margin-top:40px;padding:35px 18px}@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:9px}.pic{height:150px}.body{padding:9px}.name{font-size:14px}.price{font-size:17px}.btn{font-size:11px;padding:9px 4px}}
+</style></head><body>
+<header><div class="nav"><div class="logo">AS Prints <b>SHOP</b></div><input id="search" placeholder="Search products..."></div></header>
+<section class="hero"><div class="wrap"><h1>Discover. Compare. Shop Smart.</h1><p>Shop useful finds from Shopee, TikTok Shop and Lazada in one place.</p><button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Browse Products →</button></div></section>
+<main class="wrap" id="shop"><h2>Shop by Category</h2><div id="cats" class="cats"></div>
+<div class="tools"><b id="count"></b><select id="sort"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="rating">Top Rated</option></select></div>
+<div id="grid" class="grid"></div></main>
+<footer><div class="wrap"><b style="color:white">AS Prints Affiliate Store</b><p>We may earn a commission when you shop through our affiliate links. Prices and availability may change on the marketplace.</p>© 2026 AS Prints</div></footer>
+<script>
+const products=[{"id": "P001", "name": "Portable Mini Fan", "category": "Gadgets", "description": "Rechargeable portable fan", "image": "https://example.com/fan.jpg", "price": 299, "old": 499, "shopee": "PASTE_AFFILIATE_LINK", "tiktok": "", "lazada": "", "featured": true, "status": true, "rating": 4.8, "sales": 1250, "tags": "cooling,summer"}, {"id": "P002", "name": "Baby Bottle Set", "category": "Baby Needs", "description": "Complete baby feeding set", "image": "https://example.com/bottle.jpg", "price": 399, "old": 599, "shopee": "", "tiktok": "PASTE_AFFILIATE_LINK", "lazada": "", "featured": true, "status": true, "rating": 4.9, "sales": 830, "tags": "baby,feeding"}, {"id": "P003", "name": "Wireless Earbuds", "category": "Electronics", "description": "Bluetooth wireless earbuds", "image": "https://example.com/earbuds.jpg", "price": 499, "old": 899, "shopee": "", "tiktok": "", "lazada": "PASTE_AFFILIATE_LINK", "featured": false, "status": true, "rating": 4.7, "sales": 2100, "tags": "audio,gadget"}];
+let cat="All",q="",sort="featured";
+const safe=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+const peso=n=>"₱"+Number(n||0).toLocaleString("en-PH");
+function render(){
+let cs=["All",...new Set(products.filter(p=>p.status).map(p=>p.category))];
+document.getElementById("cats").innerHTML=cs.map(c=>`<button class="cat ${c==cat?"on":""}" onclick="cat=this.textContent;render()">${safe(c)}</button>`).join("");
+let a=products.filter(p=>p.status&&(cat=="All"||p.category==cat)&&(p.name+" "+p.description+" "+p.tags+" "+p.category).toLowerCase().includes(q.toLowerCase()));
+if(sort=="low")a.sort((x,y)=>x.price-y.price);if(sort=="high")a.sort((x,y)=>y.price-x.price);if(sort=="rating")a.sort((x,y)=>y.rating-x.rating);if(sort=="featured")a.sort((x,y)=>Number(y.featured)-Number(x.featured));
+document.getElementById("count").textContent=a.length+" product"+(a.length==1?"":"s");
+document.getElementById("grid").innerHTML=a.length?a.map(card).join(""):"<p>No products found.</p>";
+}
+function link(u,n){return u?`<a class="btn" href="${safe(u)}" target="_blank" rel="noopener">Shop on ${n} →</a>`:`<span class="btn off">${n} unavailable</span>`}
+function card(p){let pic=p.image?`<img src="${safe(p.image)}" alt="${safe(p.name)}">`:"<div class='ph'>🛍️</div>";let d=p.old&&p.old>p.price?Math.round((1-p.price/p.old)*100):0;
+return `<article class="card"><div class="pic">${pic}</div><div class="body"><div class="small">${safe(p.category)}</div><div class="name">${safe(p.name)}</div><div class="small">${safe(p.description)}</div><div class="price">${peso(p.price)} <span class="old">${p.old?peso(p.old):""}</span> <span class="small">${d?"-"+d+"%":""}</span></div><div class="small">⭐ ${p.rating} · ${Number(p.sales).toLocaleString()} sold</div>${link(p.shopee,"Shopee")}${link(p.tiktok,"TikTok Shop")}${link(p.lazada,"Lazada")}</div></article>`}
+document.getElementById("search").oninput=e=>{q=e.target.value;render()};document.getElementById("sort").onchange=e=>{sort=e.target.value;render()};render();
+</script></body></html>
