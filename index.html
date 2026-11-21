@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finds that Matter | Affiliate Manager</title>
+<style>
+:root{--bg:#f5f5fa;--panel:#fff;--ink:#171526;--muted:#77758a;--purple:#6d4aff;--purple2:#eee9ff;--line:#e9e7f0;--green:#16865b;--red:#c74d5b;--shadow:0 8px 28px #29204a0b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--purple);color:white;font-weight:650}button.secondary{background:#f0eef6;color:#302b43}button.danger{background:#fff0f1;color:#b63748}.app{display:flex;min-height:100vh}.side{width:245px;background:#19152a;color:white;padding:25px 16px;flex-shrink:0}.brand{font-size:20px;font-weight:800;line-height:1.15;margin:0 10px 5px}.tag{color:#b9b1d4;font-size:12px;margin:0 10px 28px}.nav{display:grid;gap:6px}.nav button{background:transparent;color:#c8c2d8;text-align:left;font-weight:550}.nav button.active,.nav button:hover{background:#30264b;color:white}.sidefoot{font-size:11px;color:#9991b4;margin:30px 10px}.main{flex:1;min-width:0;padding:28px;max-width:1500px;margin:auto;width:100%}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:24px}.top h1{font-size:25px;margin:0}.sub{color:var(--muted);font-size:13px;margin-top:4px}.status{font-size:12px;padding:7px 10px;border-radius:20px;background:#fff0d7;color:#8b5b00}.status.ok{background:#e2f6ed;color:#14724d}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.metric{font-size:25px;font-weight:800;margin-top:7px}.metriclabel{font-size:12px;color:var(--muted)}.section{display:none}.section.active{display:block}.panel{margin-bottom:16px}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.panelhead h2{font-size:17px;margin:0}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.field{display:grid;gap:5px;margin-bottom:12px}.field label{font-size:12px;font-weight:700;color:#5f5b70}.field input,.field select,.field textarea{width:100%;border:1px solid #ddd9e8;border-radius:9px;padding:10px;background:#fff;color:var(--ink)}.field textarea{min-height:82px;resize:vertical}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formgrid .field{margin:0}.formactions{display:flex;gap:8px;margin-top:14px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:680px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}td a{color:var(--purple);word-break:break-all}.pill{display:inline-block;border-radius:20px;padding:3px 8px;background:var(--purple2);color:#5635d9;font-size:11px}.empty{text-align:center;color:var(--muted);padding:28px}.muted{color:var(--muted)}.hidden{display:none!important}.notice{background:#f5f1ff;border:1px solid #e4dcff;color:#55418d;padding:12px;border-radius:11px;font-size:13px;margin-bottom:15px}.two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.barrow{display:grid;grid-template-columns:120px 1fr 70px;gap:8px;align-items:center;margin:10px 0;font-size:12px}.bar{height:9px;border-radius:10px;background:#eeeaf7;overflow:hidden}.bar i{display:block;height:100%;background:var(--purple);border-radius:10px}.small{font-size:12px}.copy{padding:5px 8px;font-size:11px}.modal{position:fixed;inset:0;background:#17132688;display:none;align-items:center;justify-content:center;padding:16px;z-index:5}.modal.show{display:flex}.modalbox{background:white;border-radius:16px;padding:22px;width:min(620px,100%);max-height:90vh;overflow:auto}.modalbox h2{margin-top:0}.toast{position:fixed;bottom:20px;right:20px;background:#211a35;color:#fff;padding:12px 16px;border-radius:10px;display:none;z-index:10}.toast.show{display:block}.settingsrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.settingsrow input{flex:1;min-width:220px;border:1px solid #ddd9e8;border-radius:9px;padding:10px}
+@media(max-width:900px){.side{width:205px}.cards{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:650px){.app{display:block}.side{width:100%;padding:15px}.brand{display:inline-block;margin-bottom:0}.tag{display:inline;margin-left:8px}.nav{display:flex;overflow:auto;margin-top:12px}.nav button{white-space:nowrap;padding:8px 10px}.sidefoot{display:none}.main{padding:18px 13px}.top{align-items:flex-start}.top h1{font-size:21px}.cards{gap:9px}.card{padding:13px}.metric{font-size:21px}.formgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">Finds that<br>Matter</div><div class="tag">AFFILIATE CONTROL CENTER</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">▦ Dashboard</button>
+    <button data-page="products">▣ Products</button>
+    <button data-page="sales">↗ Sales & Commissions</button>
+    <button data-page="content">✎ Content Planner</button>
+    <button data-page="reports">▤ Reports</button>
+    <button data-page="settings">⚙ Settings</button>
+  </nav>
+  <div class="sidefoot">Shopee • TikTok Shop<br>Google Sheets connected backend</div>
+</aside>
+<main class="main">
+  <header class="top"><div><h1 id="pageTitle">Dashboard</h1><div class="sub" id="today"></div></div><span id="connection" class="status">Local preview</span></header>
+  <section id="dashboard" class="section active">
+    <div class="cards">
+      <div class="card"><div class="metriclabel">Products tracked</div><div class="metric" id="mProducts">0</div></div>
+      <div class="card"><div class="metriclabel">Clicks recorded</div><div class="metric" id="mClicks">0</div></div>
+      <div class="card"><div class="metriclabel">Orders recorded</div><div class="metric" id="mOrders">0</div></div>
+      <div class="card"><div class="metriclabel">Estimated commission</div><div class="metric" id="mCommission">₱0.00</div></div>
+    </div>
+    <div class="two">
+      <div class="panel"><div class="panelhead"><h2>Recent sales</h2><button class="secondary" onclick="showPage('sales')">View all</button></div><div id="recentSales" class="tablewrap"></div></div>
+      <div class="panel"><div class="panelhead"><h2>Platform snapshot</h2></div><div id="platformStats"></div></div>
+    </div>
+    <div class="notice">Important: clicks and commissions shown here are records you enter or import. Shopee and TikTok do not automatically send order data to this system. Verify final commissions in each affiliate dashboard.</div>
+  </section>
+  <section id="products" class="section">
+    <div class="panel"><div class="panelhead"><h2>Affiliate product library</h2><button onclick="openProduct()">+ Add product</button></div><div class="tablewrap" id="productTable"></div></div>
+  </section>
+  <section id="sales" class="section">
+    <div class="panel"><div class="panelhead"><h2>Sales & commission tracker</h2><button onclick="openSale()">+ Record sale</button></div><div class="tablewrap" id="salesTable"></div></div>
+  </section>
+  <section id="content" class="section">
+    <div class="panel"><div class="panelhead"><h2>Content planner</h2><button onclick="openContent()">+ Create post</button></div><div class="tablewrap" id="contentTable"></div></div>
+    <div class="notice">Use the planner to prepare captions and posting dates. It does not auto-publish to Facebook, TikTok, or Shopee.</div>
+  </section>
+  <section id="reports" class="section">
+    <div class="cards">
+      <div class="card"><div class="metriclabel">Sales value</div><div class="metric" id="rSales">₱0</div></div>
+      <div class="card"><div class="metriclabel">Commission</div><div class="metric" id="rComm">₱0</div></div>
+      <div class="card"><div class="metriclabel">Conversion rate</div><div class="metric" id="rRate">0%</div></div>
+      <div class="card"><div class="metriclabel">Average order value</div><div class="metric" id="rAov">₱0</div></div>
+    </div>
+    <div class="panel"><div class="panelhead"><h2>Performance by platform</h2><button class="secondary" onclick="exportCSV()">Export sales CSV</button></div><div id="reportPlatforms"></div></div>
+    <div class="panel"><div class="panelhead"><h2>Product performance</h2></div><div class="tablewrap" id="productPerformance"></div></div>
+  </section>
+  <section id="settings" class="section">
+    <div class="panel"><div class="panelhead"><h2>Google Sheets connection</h2></div>
+      <div class="notice">Paste the deployed Google Apps Script Web App URL. Your data will then be read from and saved to your own Google Sheet.</div>
+      <div class="field"><label>Apps Script Web App URL</label><input id="apiUrl" placeholder="https://script.google.com/macros/s/...../exec"></div>
+      <div class="settingsrow"><button onclick="saveSettings()">Save connection</button><button class="secondary" onclick="testConnection()">Test connection</button><button class="secondary" onclick="loadData()">Sync now</button></div>
+      <p class="small muted">The app starts in local preview mode. Until you connect Google Sheets, records stay in this browser only.</p>
+    </div>
+    <div class="panel"><div class="panelhead"><h2>Data management</h2></div><div class="settingsrow"><button class="secondary" onclick="exportAll()">Export backup JSON</button><button class="secondary" onclick="importBackup()">Import backup JSON</button><button class="danger" onclick="clearLocal()">Clear local preview data</button></div><input type="file" id="backupFile" accept=".json" class="hidden" onchange="handleImport(event)"></div>
+    <div class="panel"><h2>Setup checklist</h2><ol class="small"><li>Create a new Google Sheet.</li><li>Open Extensions → Apps Script.</li><li>Paste the provided <b>Code.gs</b> file and save.</li><li>Deploy → New deployment → Web app. Execute as: Me. Access: Anyone.</li><li>Authorize it, copy the Web App URL, and paste it above.</li></ol></div>
+  </section>
+</main>
+</div>
+<div class="modal" id="modal"><div class="modalbox"><div class="panelhead"><h2 id="modalTitle">Add item</h2><button class="secondary" onclick="closeModal()">✕</button></div><form id="modalForm"></form></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const emptyData={products:[],sales:[],content:[]};
+let data=JSON.parse(localStorage.getItem('ftm_data')||'null')||structuredClone(emptyData);
+let apiUrl=localStorage.getItem('ftm_api')||'';
+const $=id=>document.getElementById(id);
+const money=n=>'₱'+Number(n||0).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2600)}
+function persist(){localStorage.setItem('ftm_data',JSON.stringify(data))}
+function showPage(p){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===p));$('pageTitle').textContent=({dashboard:'Dashboard',products:'Products',sales:'Sales & Commissions',content:'Content Planner',reports:'Reports',settings:'Settings'})[p];render()}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+$('today').textContent=new Date().toLocaleDateString('en-PH',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+$('apiUrl').value=apiUrl;
+function setStatus(ok,msg){$('connection').className='status'+(ok?' ok':'');$('connection').textContent=msg}
+async function api(action,payload={}){if(!apiUrl)throw Error('No Google Sheets URL configured');const r=await fetch(apiUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,...payload})});if(!r.ok)throw Error('Server returned '+r.status);const j=await r.json();if(!j.ok)throw Error(j.error||'Request failed');return j}
+async function loadData(){if(!apiUrl){render();return}try{const j=await api('getAll');data=j.data||emptyData;persist();setStatus(true,'Google Sheets connected');render();toast('Data synced from Google Sheets')}catch(e){setStatus(false,'Connection error');toast('Sync failed: '+e.message)}}
+async function saveSettings(){apiUrl=$('apiUrl').value.trim();localStorage.setItem('ftm_api',apiUrl);if(apiUrl){await testConnection()}else{setStatus(false,'Local preview');toast('Connection removed')}}
+async function testConnection(){try{const j=await api('getAll');setStatus(true,'Google Sheets connected');toast('Connection successful');data=j.data||data;persist();render()}catch(e){setStatus(false,'Connection error');toast('Could not connect: '+e.message)}}
+async function saveRecord(type,record){const arr=data[type];const ix=arr.findIndex(x=>x.id===record.id);if(ix>=0)arr[ix]=record;else arr.unshift(record);persist();render();if(apiUrl){try{await api('upsert',{type,record});setStatus(true,'Google Sheets connected')}catch(e){toast('Saved locally; Sheets sync failed: '+e.message);setStatus(false,'Sync issue')}}else toast('Saved in this browser. Connect Sheets to sync.')}
+async function deleteRecord(type,rid){if(!confirm('Delete this record?'))return;data[type]=data[type].filter(x=>x.id!==rid);persist();render();if(apiUrl){try{await api('delete',{type,id:rid})}catch(e){toast('Deleted locally; Sheets sync failed')}}}
+function render(){renderDashboard();renderProducts();renderSales();renderContent();renderReports()}
+function renderDashboard(){let clicks=data.products.reduce((s,p)=>s+Number(p.clicks||0),0),orders=data.sales.reduce((s,x)=>s+Number(x.orders||1),0),comm=data.sales.reduce((s,x)=>s+Number(x.commission||0),0);$('mProducts').textContent=data.products.length;$('mClicks').textContent=clicks.toLocaleString();$('mOrders').textContent=orders.toLocaleString();$('mCommission').textContent=money(comm);$('recentSales').innerHTML=data.sales.length?table(['Date','Product','Platform','Commission'],data.sales.slice(0,5).map(s=>[esc(s.date),esc(s.productName),pill(s.platform),money(s.commission)])):'<div class="empty">No sales recorded yet.</div>';let platforms=['Shopee','TikTok'];$('platformStats').innerHTML=platforms.map(p=>{let ss=data.sales.filter(s=>s.platform===p),c=ss.reduce((a,b)=>a+Number(b.commission||0),0);return `<div class="barrow"><b>${p}</b><div class="bar"><i style="width:${Math.min(100,comm?c/comm*100:0)}%"></i></div><span>${money(c)}</span></div>`}).join('')}
+function pill(s){return `<span class="pill">${esc(s||'—')}</span>`}
+function table(headers,rows){return `<table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`}
+function renderProducts(){$('productTable').innerHTML=data.products.length?table(['Product','Platform','Category','Price','Commission %','Clicks','Affiliate link','Actions'],data.products.map(p=>[esc(p.name),pill(p.platform),esc(p.category),money(p.price),esc(p.rate)+'%',Number(p.clicks||0),p.link?`<a href="${esc(p.link)}" target="_blank" rel="noopener">Open link</a>`:'—',`<button class="secondary copy" onclick="copyLink('${p.id}')">Copy</button> <button class="danger copy" onclick="deleteRecord('products','${p.id}')">Delete</button>`])):'<div class="empty">Add your first affiliate product.</div>'}
+function renderSales(){$('salesTable').innerHTML=data.sales.length?table(['Date','Product','Platform','Order value','Orders','Commission','Status','Actions'],data.sales.map(s=>[esc(s.date),esc(s.productName),pill(s.platform),money(s.orderValue),esc(s.orders||1),money(s.commission),pill(s.status),`<button class="danger copy" onclick="deleteRecord('sales','${s.id}')">Delete</button>`])):'<div class="empty">No sales recorded yet.</div>'}
+function renderContent(){$('contentTable').innerHTML=data.content.length?table(['Publish date','Platform','Product','Caption','Status','Actions'],data.content.map(c=>[esc(c.date),pill(c.platform),esc(c.productName||'—'),`<span title="${esc(c.caption)}">${esc(c.caption).slice(0,90)}${c.caption.length>90?'…':''}</span>`,pill(c.status),`<button class="secondary copy" onclick="copyText('${c.id}')">Copy caption</button> <button class="danger copy" onclick="deleteRecord('content','${c.id}')">Delete</button>`])):'<div class="empty">No planned posts yet.</div>'}
+function renderReports(){let value=data.sales.reduce((a,s)=>a+Number(s.orderValue||0)*Number(s.orders||1),0),comm=data.sales.reduce((a,s)=>a+Number(s.commission||0),0),orders=data.sales.reduce((a,s)=>a+Number(s.orders||1),0),clicks=data.products.reduce((a,p)=>a+Number(p.clicks||0),0);$('rSales').textContent=money(value);$('rComm').textContent=money(comm);$('rRate').textContent=(clicks?orders/clicks*100:0).toFixed(2)+'%';$('rAov').textContent=money(orders?value/orders:0);$('reportPlatforms').innerHTML=['Shopee','TikTok'].map(p=>{let a=data.sales.filter(s=>s.platform===p),v=a.reduce((n,s)=>n+Number(s.orderValue||0)*Number(s.orders||1),0),c=a.reduce((n,s)=>n+Number(s.commission||0),0);return `<div class="barrow"><b>${p}</b><div class="bar"><i style="width:${Math.min(100,value?v/value*100:0)}%"></i></div><span>${money(c)}</span></div>`}).join('');let by={};data.sales.forEach(s=>{by[s.productName]=(by[s.productName]||0)+Number(s.commission||0)});let rows=Object.entries(by).sort((a,b)=>b[1]-a[1]).map(([n,c])=>[esc(n),money(c)]);$('productPerformance').innerHTML=rows.length?table(['Product','Commission'],rows):'<div class="empty">No performance data yet.</div>'}
+function openModal(title,fields,submit){$('modalTitle').textContent=title;$('modalForm').innerHTML=fields.map(f=>`<div class="field"><label>${f.label}</label>${f.type==='textarea'?`<textarea name="${f.name}" ${f.required?'required':''} placeholder="${f.placeholder||''}">${esc(f.value||'')}</textarea>`:f.type==='select'?`<select name="${f.name}" ${f.required?'required':''}>${f.options.map(o=>`<option ${o===f.value?'selected':''}>${o}</option>`).join('')}</select>`:`<input name="${f.name}" type="${f.type||'text'}" value="${esc(f.value||'')}" placeholder="${f.placeholder||''}" ${f.required?'required':''} ${f.step?`step="${f.step}"`:''}>`}</div>`).join('')+`<div class="formactions"><button type="submit">Save</button><button type="button" class="secondary" onclick="closeModal()">Cancel</button></div>`;$('modalForm').onsubmit=e=>{e.preventDefault();let obj=Object.fromEntries(new FormData(e.target).entries());submit(obj)};$('modal').classList.add('show')}
+function closeModal(){$('modal').classList.remove('show')}
+function openProduct(){openModal('Add affiliate product',[{name:'name',label:'Product name',required:true},{name:'platform',label:'Platform',type:'select',options:['Shopee','TikTok'],required:true},{name:'category',label:'Category',placeholder:'e.g. Home, Beauty, Gadgets'},{name:'price',label:'Product price (₱)',type:'number',step:'0.01'},{name:'rate',label:'Commission rate (%)',type:'number',step:'0.01'},{name:'clicks',label:'Clicks (enter from affiliate dashboard)',type:'number'},{name:'link',label:'Affiliate link',placeholder:'https://...',required:true}],v=>{saveRecord('products',{id:id(),...v,price:+v.price||0,rate:+v.rate||0,clicks:+v.clicks||0});closeModal()})}
+function openSale(){let names=data.products.map(p=>p.name);openModal('Record affiliate sale',[{name:'date',label:'Order date',type:'date',value:new Date().toISOString().slice(0,10),required:true},{name:'productName',label:'Product',type:'select',options:names.length?names:['Other / not listed']},{name:'platform',label:'Platform',type:'select',options:['Shopee','TikTok'],required:true},{name:'orderValue',label:'Order value (₱)',type:'number',step:'0.01',required:true},{name:'orders',label:'Number of orders',type:'number',value:'1'},{name:'commission',label:'Commission (₱)',type:'number',step:'0.01',required:true},{name:'status',label:'Status',type:'select',options:['Pending','Approved','Paid','Cancelled']}],v=>{saveRecord('sales',{id:id(),...v,orderValue:+v.orderValue||0,orders:+v.orders||1,commission:+v.commission||0});closeModal()})}
+function openContent(){openModal('Plan social post',[{name:'date',label:'Planned publish date',type:'date',value:new Date().toISOString().slice(0,10),required:true},{name:'platform',label:'Platform',type:'select',options:['TikTok','Facebook','Shopee'],required:true},{name:'productName',label:'Promoted product',type:'select',options:['—',...data.products.map(p=>p.name)]},{name:'caption',label:'Caption / post copy',type:'textarea',required:true},{name:'status',label:'Status',type:'select',options:['Idea','Draft','Ready','Published']}],v=>{saveRecord('content',{id:id(),...v});closeModal()})}
+async function copyLink(pid){let p=data.products.find(x=>x.id===pid);if(p?.link){await navigator.clipboard.writeText(p.link);toast('Affiliate link copied')}}
+async function copyText(cid){let c=data.content.find(x=>x.id===cid);if(c){await navigator.clipboard.writeText(c.caption);toast('Caption copied')}}
+function exportCSV(){let rows=[['Date','Product','Platform','Order Value','Orders','Commission','Status'],...data.sales.map(s=>[s.date,s.productName,s.platform,s.orderValue,s.orders,s.commission,s.status])];let csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');download('finds-that-matter-sales.csv',csv,'text/csv')}
+function exportAll(){download('finds-that-matter-backup.json',JSON.stringify(data,null,2),'application/json')}
+function download(name,content,type){let a=document.createElement('a'),u=URL.createObjectURL(new Blob([content],{type}));a.href=u;a.download=name;a.click();URL.revokeObjectURL(u)}
+function importBackup(){$('backupFile').click()}
+function handleImport(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);persist();render();toast('Backup imported')}catch{toast('Invalid backup file')}};r.readAsText(f)}
+function clearLocal(){if(confirm('Clear locally stored preview data? This does not delete your Google Sheet.')){data=structuredClone(emptyData);persist();render();toast('Local data cleared')}}
+render();if(apiUrl)loadData();
+</script>
+</body></html>
